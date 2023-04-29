@@ -34,7 +34,7 @@ const Navbar = () => {
                 {toggle && (
                     <motion.div
                         whileInView={{ x: [300, 0] }} //ширина 300 по x
-                        transition={{ duration: 0.85, ease: "easeOut" }} //продолжительность 0.85с
+                        transition={{ duration: 1.25, ease: "easeOut" }} //продолжительность 0.85с
                     >
                         <HiX onClick={() => setToggle(false)} />
                         <ul>
