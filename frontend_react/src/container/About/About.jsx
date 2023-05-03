@@ -2,29 +2,17 @@ import { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
 import { images } from "../../constants";
+import { urlFor, client, getPosts } from "../../client";
 
 import styles from "./About.module.scss";
 
-const abouts = [
-    {
-        title: "Разработка  одностраничных лендингов",
-        description: "Продукты, созданные при помощи HTML/CSS/JavaScript",
-        imgUrl: images.about01,
-    },
-    {
-        title: "Разработка  многостраничных сайтов",
-        description:
-            "Продукты, созданные при помощи HTML/CSS/JavaScript(возможно применение Bootstrap, Material UI и др.)",
-        imgUrl: images.about02,
-    },
-    {
-        title: "Разработка веб приложений",
-        description: "Продукты, созданные при помощи библиотеки React и др.",
-        imgUrl: images.about03,
-    },
-];
-
 const About = () => {
+    const [abouts, setAbouts] = useState([]);
+
+    useEffect(() => {
+        getPosts().then((data) => setAbouts(data));
+    }, []);
+
     return (
         <>
             <h2 className={styles.title}>
@@ -43,7 +31,7 @@ const About = () => {
                             className={styles.item}
                             key={about.title + index}
                         >
-                            <img src={about.imgUrl} alt={about.title} />
+                            <img src={urlFor(about.imgUrl)} alt={about.title} />
                             <h2
                                 className={styles.aboutTitle}
                                 style={{ marginTop: 20 }}
