@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { images } from "../../constants";
 
+import AppWrap from "../../wrapper/AppWrap";
+
 import styles from "./Header.module.scss";
 
 const scaleVariants = {
@@ -16,7 +18,7 @@ const scaleVariants = {
 
 const Header = () => {
     return (
-        <div id={styles.home} className={styles.header}>
+        <div className={styles.header}>
             <motion.div
                 whileInView={{ x: [-150, 0], opacity: [0, 1] }} // прозрачность от 0 до 1
                 transition={{ duration: 1.75 }}
@@ -75,4 +77,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default AppWrap(Header, "home");

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
-import { images } from "../../constants";
-import { urlFor, client, getPosts } from "../../client";
+
+import { urlFor, getPosts } from "../../client";
 
 import styles from "./About.module.scss";
+import { AppWrap } from "../../wrapper";
 
 const About = () => {
     const [abouts, setAbouts] = useState([]);
@@ -52,4 +53,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default AppWrap(About, "about");
